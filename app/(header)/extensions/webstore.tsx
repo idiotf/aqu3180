@@ -3,6 +3,11 @@ import Image from 'next/image'
 import { Suspense } from 'react'
 import ErrorComponent from '@/app/error'
 import { Skeleton } from '@/components/ui/skeleton'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel'
 import { ErrorBoundary } from 'next/dist/client/components/error-boundary'
 
 interface WebStoreData {
@@ -37,7 +42,7 @@ export const WebStoreExtension = async ({ id }: { id: string }) => {
     <div className='flex flex-col p-4'>
       <Image
         src={image}
-        alt={`${name} 아이콘`}
+        alt={`${name} 이미지`}
         width={256}
         height={163}
         priority
@@ -65,15 +70,19 @@ export const WebStoreLoading = () =>
   </div>
 
 export const WebStoreExtensionList = ({ list }: { list: string[] }) =>
-  <ul className='flex overflow-hidden gap-[21px] mt-6'>
-    {list.map(id => (
-      <li key={id} className='shrink-0 w-[240.25px] relative bg-[#f0f4f9] dark:bg-[#181819] rounded-[20px] hover:before:bg-[#444746] hover:before:opacity-8 hover:before:block hover:before:absolute hover:before:inset-0 hover:before:rounded-[20px] active:before:opacity-10'>
-        <Link href={`https://chrome.google.com/webstore/detail/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
-        <Suspense fallback={<WebStoreLoading />}>
-          <ErrorBoundary errorComponent={ErrorComponent}>
-            <WebStoreExtension id={id} />
-          </ErrorBoundary>
-        </Suspense>
-      </li>
-    ))}
-  </ul>
+  <Carousel className='mt-6 select-none group'>
+    <CarouselContent className='w-[240.25px] gap-[21px]'>
+      {list.map(id =>
+        <CarouselItem key={id}>
+          <div className='w-[240.25px] relative bg-[#f0f4f9] dark:bg-[#181819] rounded-[20px] hover:before:bg-[#444746] hover:before:opacity-8 hover:before:block hover:before:absolute hover:before:inset-0 hover:before:rounded-[20px] active:before:opacity-10'>
+            <Link href={`https://chrome.google.com/webstore/detail/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
+            <Suspense fallback={<WebStoreLoading />}>
+              <ErrorBoundary errorComponent={ErrorComponent}>
+                <WebStoreExtension id={id} />
+              </ErrorBoundary>
+            </Suspense>
+          </div>
+        </CarouselItem>
+      )}
+    </CarouselContent>
+  </Carousel>
