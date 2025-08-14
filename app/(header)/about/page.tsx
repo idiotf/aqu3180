@@ -30,11 +30,11 @@ const FrameworkCard = ({ image, name, width, height, link }: {
 const AboutPage = () => <>
   <div className='mt-16 flex'>
     <Logo className='w-1/3' />
-    <div className='w-2/3 p-[5vw]'>
+    <div className='w-2/3 p-[min(5vw,64px)]'>
       <h1>
         <Aqu3180Text className='w-full h-min' />
       </h1>
-      <p className='text-xl mt-[2vw]'>안녕하세요. 저는 aqu3180입니다.</p>
+      <p className='text-xl mt-[min(2vw,32px)]'>안녕하세요. 저는 aqu3180입니다.</p>
     </div>
   </div>
   <h2 className='text-3xl font-semibold text-center my-4'>좋아하는 프레임워크</h2>
