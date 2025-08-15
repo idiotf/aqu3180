@@ -28,7 +28,7 @@ const FrameworkCard = ({ image, name, width, height, link }: {
   </li>
 
 const AboutPage = () => <>
-  <div className='mt-16 flex'>
+  <div className='mt-16 max-[30rem]:my-8 flex'>
     <Logo className='w-1/3' />
     <div className='w-2/3 p-[min(5vw,64px)]'>
       <h1>
@@ -38,7 +38,7 @@ const AboutPage = () => <>
     </div>
   </div>
   <h2 className='text-3xl font-semibold text-center my-4'>좋아하는 프레임워크</h2>
-  <ul className='grid grid-cols-[repeat(auto-fit,minmax(194px,1fr))] gap-8 my-16'>
+  <ul className='grid grid-cols-[repeat(auto-fit,minmax(194px,1fr))] gap-8 my-16 max-lg:mt-[calc(12.5vw-64px)] max-md:mt-8'>
     <FrameworkCard
       name='Next.js'
       image={nextJSLogo}
