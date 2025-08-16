@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -14,11 +13,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 
 import entryLogo from './third-party-logo/entry.png'
 import GithubLogo from './third-party-logo/github'
-
-export const metadata: Metadata = {
-  title: 'aqu3180',
-  description: 'aqu3180의 홈페이지',
-}
 
 const NavigationItem = ({ children, href }: React.PropsWithChildren<{
   href: string

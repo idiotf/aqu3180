@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Noto_Sans_KR } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import { cn } from '@/lib/utils'
 import './globals.css'
 
 const notoSansKR = Noto_Sans_KR({
@@ -8,7 +9,10 @@ const notoSansKR = Noto_Sans_KR({
 })
 
 export const metadata: Metadata = {
-  title: 'aqu3180',
+  title: {
+    default: 'aqu3180',
+    template: '%s | aqu3180',
+  },
   description: 'aqu3180의 홈페이지',
   icons: '/icon.svg',
 }
@@ -20,7 +24,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) =>
     suppressHydrationWarning
   >
     <body
-      className={`${notoSansKR.className} antialiased h-full`}
+      className={cn(notoSansKR.className, 'antialiased h-full')}
     >
       <ThemeProvider
         attribute='class'
