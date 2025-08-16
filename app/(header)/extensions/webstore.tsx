@@ -30,7 +30,13 @@ async function getWebStoreData(id: string): Promise<WebStoreData> {
   const data = JSON.parse(match[1])
 
   const [ , , name, score, reviews, image, description ] = data[0]
-  const output = { name, score, reviews, image, description }
+  const output = {
+    name,
+    score: score || 0,
+    reviews: reviews || 0,
+    image,
+    description,
+  }
 
   return output
 }
@@ -70,7 +76,7 @@ export const WebStoreLoading = () =>
   </div>
 
 export const WebStoreExtensionList = ({ list }: { list: string[] }) =>
-  <Carousel className='mt-6 select-none group'>
+  <Carousel opts={{ skipSnaps: true }} className='mt-6 select-none group'>
     <CarouselContent className='w-[240.25px] gap-[21px]'>
       {list.map(id =>
         <CarouselItem key={id}>

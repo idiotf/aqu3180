@@ -1,9 +1,14 @@
 {
   "webStoreExtList": [
     "jdpgbfjgkdenchgmfnpbahbgjbjjmmja",
-    "oadlpafjjlbihnlddoabgnldjldobkmh"
+    "oadlpafjjlbihnlddoabgnldjldobkmh",
+    "llhoalinlbdfoipleohgjofnpacbgigj"
   ],
   "githubExtList": [
+    {
+      "id": "Rainbow_Link",
+      "baseUrl": ""
+    },
     "Entry_OverRes",
     "Entry_FHD",
     "Entry_Publink",

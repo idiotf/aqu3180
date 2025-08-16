@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       new URL('https://**.googleusercontent.com/**'),
-      new URL('https://raw.githubusercontent.com/idiotf/*/main/build/**'),
+      new URL('https://raw.githubusercontent.com/idiotf/*/main/*/**'),
     ],
   },
   async redirects() {

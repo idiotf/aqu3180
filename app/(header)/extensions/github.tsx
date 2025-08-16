@@ -11,14 +11,20 @@ interface GithubExtData {
   description: string
 }
 
+interface GithubManifestData {
+  id: string
+  baseUrl: string
+}
+
 interface GithubSiteData {
   id: string
   name: string
   description: string
 }
 
-async function getGithubExtData(name: string): Promise<GithubExtData> {
-  const res = await fetch(`https://raw.githubusercontent.com/idiotf/${name}/main/build/manifest.json`, {
+async function getGithubExtData(id: string, baseUrl?: string): Promise<GithubExtData> {
+  baseUrl ??= 'build'
+  const res = await fetch(`https://raw.githubusercontent.com/idiotf/${id}/main/${baseUrl}/manifest.json`, {
     cache: 'force-cache',
   })
   const json = await res.json()
@@ -26,14 +32,15 @@ async function getGithubExtData(name: string): Promise<GithubExtData> {
   return {
     name: json.name,
     description: json.description,
-    image: json.icons && `https://raw.githubusercontent.com/idiotf/${name}/main/build/${json.icons[128]}`
+    image: json.icons && `https://raw.githubusercontent.com/idiotf/${id}/main/${baseUrl}/${json.icons[128]}`
   }
 }
 
-export const GithubExtension = async ({ id }: {
+export const GithubExtension = async ({ id, baseUrl }: {
   id: string
+  baseUrl?: string
 }) => {
-  const { name, description, image } = await getGithubExtData(id)
+  const { name, description, image } = await getGithubExtData(id, baseUrl)
 
   return (
     <div className='h-full flex items-center gap-4 p-4'>
@@ -63,12 +70,15 @@ export const GithubExtLoading = () =>
     </div>
   </div>
 
-const GithubExtensionItem = ({ id }: { id: string }) =>
+const GithubExtensionItem = ({ id, baseUrl }: {
+  id: string
+  baseUrl?: string
+}) =>
   <li className='min-h-24 relative bg-[#f0f4f9] dark:bg-[#181819] rounded-[20px] hover:before:bg-[#444746] hover:before:opacity-8 hover:before:block hover:before:absolute hover:before:inset-0 hover:before:rounded-[20px] active:before:opacity-10'>
     <Link href={`https://github.com/idiotf/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
     <Suspense fallback={<GithubExtLoading />}>
       <ErrorBoundary errorComponent={ErrorComponent}>
-        <GithubExtension id={id} />
+        <GithubExtension id={id} baseUrl={baseUrl} />
       </ErrorBoundary>
     </Suspense>
   </li>
@@ -84,7 +94,11 @@ const GithubSiteItem = ({ id, name, description }: GithubSiteData) =>
     </div>
   </li>
 
-export const GithubExtensionList = ({ list }: { list: (string | GithubSiteData)[] }) =>
+export const GithubExtensionList = ({ list }: { list: (string | GithubSiteData | GithubManifestData)[] }) =>
   <ul className='grid grid-cols-2 max-[42rem]:grid-cols-1 gap-[21px] mt-6'>
-    {list.map(id => typeof id == 'string' ? <GithubExtensionItem key={id} id={id} /> : <GithubSiteItem key={id.id} {...id} />)}
+    {list.map(item =>
+      typeof item == 'string' ? <GithubExtensionItem key={item} id={item} />
+    : 'description' in item ? <GithubSiteItem key={item.id} {...item} />
+    : <GithubExtensionItem key={item.id} {...item} />
+    )}
   </ul>
