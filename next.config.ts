@@ -12,11 +12,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/entryjs-uwu',
-        destination: '/entryjs-uwu.svg',
-        permanent: false,
-      },
-      {
         source: '/image-encoder',
         destination: 'https://image.aqu3180.co.kr/rgb-encoder/encoder',
         permanent: false,
