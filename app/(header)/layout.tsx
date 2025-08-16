@@ -71,7 +71,7 @@ const SheetItem = ({ children, href }: React.PropsWithChildren<{
 
 const HeaderSheet = () =>
   <Sheet>
-    <SheetTrigger>
+    <SheetTrigger aria-label='메뉴'>
       <Menu className='size-8 cursor-pointer' />
     </SheetTrigger>
     <SheetContent>

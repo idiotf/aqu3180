@@ -42,7 +42,8 @@ export const GithubExtension = async ({ id, baseUrl }: {
 }) => {
   const { name, description, image } = await getGithubExtData(id, baseUrl)
 
-  return (
+  return <>
+    <Link href={`https://github.com/idiotf/${id}`} target='_blank' aria-label={name} className='absolute rounded-[20px] w-full h-full z-10' />
     <div className='h-full flex items-center gap-4 p-4'>
       {image && (
         <Image
@@ -58,10 +59,11 @@ export const GithubExtension = async ({ id, baseUrl }: {
         <p className='text-[14px] mt-2'>{description}</p>
       </div>
     </div>
-  )
+  </>
 }
 
-export const GithubExtLoading = () =>
+export const GithubExtLoading = ({ id }: { id: string }) => <>
+  <Link href={`https://github.com/idiotf/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
   <div className='h-full flex items-center gap-4 p-4 not-dark:brightness-90'>
     <Skeleton className='size-16 rounded-[12px]' />
     <div>
@@ -69,14 +71,14 @@ export const GithubExtLoading = () =>
       <Skeleton className='w-64 h-[21px] mt-2' />
     </div>
   </div>
+</>
 
 const GithubExtensionItem = ({ id, baseUrl }: {
   id: string
   baseUrl?: string
 }) =>
   <li className='min-h-24 relative bg-[#f0f4f9] dark:bg-[#181819] rounded-[20px] hover:before:bg-[#444746] hover:before:opacity-8 hover:before:block hover:before:absolute hover:before:inset-0 hover:before:rounded-[20px] active:before:opacity-10'>
-    <Link href={`https://github.com/idiotf/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
-    <Suspense fallback={<GithubExtLoading />}>
+    <Suspense fallback={<GithubExtLoading id={id} />}>
       <ErrorBoundary errorComponent={ErrorComponent}>
         <GithubExtension id={id} baseUrl={baseUrl} />
       </ErrorBoundary>

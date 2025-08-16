@@ -44,7 +44,8 @@ async function getWebStoreData(id: string): Promise<WebStoreData> {
 export const WebStoreExtension = async ({ id }: { id: string }) => {
   const { name, score, reviews, image, description } = await getWebStoreData(id)
 
-  return (
+  return <>
+    <Link href={`https://chrome.google.com/webstore/detail/${id}`} target='_blank' aria-label={name} className='absolute rounded-[20px] w-full h-full z-10' />
     <div className='flex flex-col p-4'>
       <Image
         src={image}
@@ -64,16 +65,18 @@ export const WebStoreExtension = async ({ id }: { id: string }) => {
       </span>
       <p className='text-[14px] mt-2 min-h-10'>{description}</p>
     </div>
-  )
+  </>
 }
 
-export const WebStoreLoading = () =>
+export const WebStoreLoading = ({ id }: { id: string }) => <>
+  <Link href={`https://chrome.google.com/webstore/detail/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
   <div className='flex flex-col p-4 not-dark:brightness-90'>
     <Skeleton className='w-[208.25px] rounded-[12px] aspect-[11/7]' />
     <Skeleton className='w-24 h-6 mt-3' />
     <Skeleton className='w-16 mt-1 h-[21px]' />
     <Skeleton className='mt-2 h-[42px]' />
   </div>
+</>
 
 export const WebStoreExtensionList = ({ list }: { list: string[] }) =>
   <Carousel opts={{ skipSnaps: true }} className='mt-6 select-none group'>
@@ -81,8 +84,7 @@ export const WebStoreExtensionList = ({ list }: { list: string[] }) =>
       {list.map(id =>
         <CarouselItem key={id}>
           <div className='w-[240.25px] relative bg-[#f0f4f9] dark:bg-[#181819] rounded-[20px] hover:before:bg-[#444746] hover:before:opacity-8 hover:before:block hover:before:absolute hover:before:inset-0 hover:before:rounded-[20px] active:before:opacity-10'>
-            <Link href={`https://chrome.google.com/webstore/detail/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
-            <Suspense fallback={<WebStoreLoading />}>
+            <Suspense fallback={<WebStoreLoading id={id} />}>
               <ErrorBoundary errorComponent={ErrorComponent}>
                 <WebStoreExtension id={id} />
               </ErrorBoundary>
