@@ -4,7 +4,7 @@ const Aqu3180Text = (props: React.SVGProps<SVGSVGElement>) =>
     width='888'
     height='216'
     fill='none'
-    stroke='#fff'
+    stroke='currentColor'
     strokeLinecap='round'
     strokeLinejoin='round'
     strokeWidth='4'

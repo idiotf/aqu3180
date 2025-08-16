@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Logo from '@/app/logo'
 import Image from 'next/image'
-import nextJSLogo from '../third-party-logo/nextjs.png'
+import NextJSLogo from '../third-party-logo/nextjs'
 import TypeScriptLogo from '../third-party-logo/typescript'
 import TailwindcssLogo from '../third-party-logo/tailwindcss'
 import ShadcnLogo from '../third-party-logo/shadcn'
@@ -16,7 +16,7 @@ const FrameworkCard = ({ image, name, width, height, link }: {
   link: string
 }) =>
   <li className='p-4 border rounded-2xl flex flex-col items-center relative transition duration-200 hover:scale-105'>
-    <Link href={link} className='absolute inset-0 rounded-2xl' target='_blank' aria-label={name} />
+    <Link href={link} className='absolute inset-0 rounded-2xl z-10' target='_blank' aria-label={name} />
     {image && typeof image == 'object' && ('src' in image || 'default' in image) ? <Image
       src={image}
       width={width}
@@ -41,7 +41,7 @@ const AboutPage = () => <>
   <ul className='grid grid-cols-[repeat(auto-fit,minmax(194px,1fr))] gap-8 my-16 max-lg:mt-[calc(12.5vw-64px)] max-md:mt-8'>
     <FrameworkCard
       name='Next.js'
-      image={nextJSLogo}
+      image={<NextJSLogo className='size-32 mt-4 opacity-90' />}
       link='https://nextjs.org'
     />
     <FrameworkCard

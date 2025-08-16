@@ -145,7 +145,7 @@ const HeaderLayout = ({
         </div>
         <Separator orientation='vertical' style={separatorStyle} />
         <Button variant='ghost' className='cursor-pointer' asChild>
-          <Link href='/entryjs-uwu.svg' target='_blank'>Entryjs uwu 로고</Link>
+          <Link href='/entryjs-uwu' target='_blank'>Entryjs uwu 로고</Link>
         </Button>
         <Separator orientation='vertical' style={separatorStyle} />
         <p className='text-sm'>
