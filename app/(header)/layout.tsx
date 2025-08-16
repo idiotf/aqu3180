@@ -103,8 +103,8 @@ const HeaderLayout = ({
   params, // eslint-disable-line @typescript-eslint/no-unused-vars
   ...props
 }: React.PropsWithChildren<React.HTMLProps<HTMLElement>> & { params?: unknown }) =>
-  <main className='h-full'>
-    <header className='border-b'>
+  <main className='min-h-full'>
+    <header className='border-b sticky max-[30rem]:top-0 bg-background z-20'>
       <nav className='p-3 flex items-center justify-between m-auto max-w-[1024px]'>
         <div className='w-32 flex max-md:w-[calc(50%-244px)] max-sm:w-16 text-[0px]'>
           <Link href='/' className='inline-block w-min' aria-label='aqu3180 홈'>
