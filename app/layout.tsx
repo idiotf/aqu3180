@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { Noto_Sans_KR } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
-import ogImage from '@/public/og-image.png'
+import ogImage from './og-image.png'
 import './globals.css'
 
 const notoSansKR = Noto_Sans_KR({
