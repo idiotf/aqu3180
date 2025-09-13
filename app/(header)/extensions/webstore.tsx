@@ -20,9 +20,7 @@ interface WebStoreData {
 
 const webStoreRegex = /AF_initDataCallback\({key: 'ds:0', hash: '\d+', data:(.*?), sideChannel:/
 async function getWebStoreData(id: string): Promise<WebStoreData> {
-  const res = await fetch(`https://chromewebstore.google.com/detail/${id}?hl=ko`, {
-    cache: 'force-cache',
-  })
+  const res = await fetch(`https://chromewebstore.google.com/detail/${id}?hl=ko`)
   const text = await res.text()
 
   const match = webStoreRegex.exec(text)
