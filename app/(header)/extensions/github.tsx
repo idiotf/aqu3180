@@ -22,8 +22,7 @@ interface GithubSiteData {
   description: string
 }
 
-async function getGithubExtData(id: string, baseUrl?: string): Promise<GithubExtData> {
-  baseUrl ??= 'build'
+async function getGithubExtData(id: string, baseUrl = 'build'): Promise<GithubExtData> {
   const res = await fetch(`https://raw.githubusercontent.com/idiotf/${id}/main/${baseUrl}/manifest.json`, {
     cache: 'force-cache',
   })
@@ -65,10 +64,10 @@ export const GithubExtension = async ({ id, baseUrl }: {
 export const GithubExtLoading = ({ id }: { id: string }) => <>
   <Link href={`https://github.com/idiotf/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
   <div className='h-full flex items-center gap-4 p-4 not-dark:brightness-90'>
-    <Skeleton className='size-16 rounded-[12px]' />
-    <div>
-      <Skeleton className='w-32 h-6' />
-      <Skeleton className='w-64 h-[21px] mt-2' />
+    <Skeleton className='size-16 rounded-[12px] shrink-0' />
+    <div className='w-64'>
+      <Skeleton className='w-[min(128px,100%)] h-6' />
+      <Skeleton className='w-full h-[21px] mt-2' />
     </div>
   </div>
 </>
@@ -88,11 +87,9 @@ const GithubExtensionItem = ({ id, baseUrl }: {
 const GithubSiteItem = ({ id, name, description }: GithubSiteData) =>
   <li className='min-h-24 relative bg-[#f0f4f9] dark:bg-[#181819] rounded-[20px] hover:before:bg-[#444746] hover:before:opacity-8 hover:before:block hover:before:absolute hover:before:inset-0 hover:before:rounded-[20px] active:before:opacity-10'>
     <Link href={`https://github.com/idiotf/${id}`} target='_blank' aria-label={name} className='absolute rounded-[20px] w-full h-full z-10' />
-    <div className='h-full flex items-center gap-4 p-4'>
-      <div>
-        <p className='text-base font-medium'>{name}</p>
-        <p className='text-[14px] mt-2'>{description}</p>
-      </div>
+    <div className='h-full flex flex-col justify-center p-4'>
+      <p className='text-base font-medium'>{name}</p>
+      <p className='text-[14px] mt-2'>{description}</p>
     </div>
   </li>
 
