@@ -19,6 +19,10 @@ export const githubExtList = [
   'X_Token_Fixer',
   'entry-warning-sound',
   'shorten_url_generator',
+  'entry-resuggest',
+  'entry-black-tips',
+  'entry-login-count',
+  'image-uploader',
 ]
 
 export const sites = [
