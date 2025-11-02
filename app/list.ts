@@ -25,6 +25,7 @@ export const githubExtList = [
   'image-uploader',
   'entry-reverse-order',
   'entry-unloadless',
+  'entry-toastify',
 ]
 
 export const sites = [
