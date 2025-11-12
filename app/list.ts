@@ -23,6 +23,7 @@ export const githubExtList = [
   'entry-black-tips',
   'entry-login-count',
   'image-uploader',
+  'entry-reverse-order',
 ]
 
 export const sites = [
