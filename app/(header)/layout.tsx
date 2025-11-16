@@ -71,7 +71,7 @@ const HeaderSheet = () =>
     <SheetContent>
       <SheetHeader>
         <SheetTitle>메뉴</SheetTitle>
-        <SheetDescription />
+        <SheetDescription hidden />
       </SheetHeader>
       <div className='px-2'>
         <ul className='-mt-4'>
@@ -99,7 +99,7 @@ const HeaderLayout = ({
 }: React.PropsWithChildren<React.HTMLProps<HTMLElement>> & { params?: unknown }) =>
   <main className='min-h-full'>
     <header className='border-b sticky max-[30rem]:top-0 bg-background z-20'>
-      <nav className='p-3 flex items-center justify-between m-auto max-w-[1024px]'>
+      <nav className='p-3 flex items-center justify-between m-auto max-w-5xl'>
         <div className='w-32 flex max-md:w-[calc(50%-244px)] max-sm:w-16 text-[0px]'>
           <Link href='/' className='inline-block w-min' aria-label='aqu3180 홈'>
             <Logo className='size-12' />
@@ -120,7 +120,7 @@ const HeaderLayout = ({
             <PopoverContent className='w-48 text-center'>여기에 뭘 넣을까요</PopoverContent>
           </Popover>
         </div>
-        <div className='w-16 flex min-sm:hidden justify-end max-[30rem]:hidden'>
+        <div className='w-16 flex sm:hidden justify-end max-[30rem]:hidden'>
           <HeaderMenu />
         </div>
         <div className='w-16 flex justify-end min-[30rem]:hidden'>
@@ -128,11 +128,11 @@ const HeaderLayout = ({
         </div>
       </nav>
     </header>
-    <section {...props} className={cn('px-3 m-auto max-w-[1024px]', className)}>
+    <section {...props} className={cn('px-3 m-auto max-w-5xl', className)}>
       {children}
     </section>
     <footer className='mt-12 border-t'>
-      <nav className='flex flex-wrap gap-5 items-center p-3 py-8 m-auto max-w-[1024px] min-h-28'>
+      <nav className='flex flex-wrap gap-5 items-center p-3 py-8 m-auto max-w-5xl min-h-28'>
         <div className='flex justify-start gap-4'>
           <Logo className='size-12' />
           <Aqu3180Text className='w-min h-12' />

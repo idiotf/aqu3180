@@ -21,7 +21,9 @@ interface WebStoreData {
 const webStoreRegex = /AF_initDataCallback\({key: 'ds:0', hash: '\d+', data:(.*?), sideChannel:/
 async function getWebStoreData(id: string): Promise<WebStoreData> {
   const res = await fetch(`https://chromewebstore.google.com/detail/${id}?hl=ko`, {
-    cache: 'no-store',
+    next: {
+      revalidate: 60,
+    },
   })
   const text = await res.text()
 
@@ -53,7 +55,7 @@ export const WebStoreExtension = async ({ id }: { id: string }) => {
         width={256}
         height={163}
         priority
-        className='w-full rounded-[12px] aspect-[11/7]'
+        className='w-full rounded-[12px] aspect-11/7'
       />
       <p className='text-base font-medium mt-3'>{name}</p>
       <span className='mt-1 text-[14px]'>
@@ -71,7 +73,7 @@ export const WebStoreExtension = async ({ id }: { id: string }) => {
 export const WebStoreLoading = ({ id }: { id: string }) => <>
   <Link href={`https://chrome.google.com/webstore/detail/${id}`} target='_blank' className='absolute rounded-[20px] w-full h-full z-10' />
   <div className='flex flex-col p-4 not-dark:brightness-90'>
-    <Skeleton className='w-[208.25px] rounded-[12px] aspect-[11/7]' />
+    <Skeleton className='w-[208.25px] rounded-[12px] aspect-11/7' />
     <Skeleton className='w-24 h-6 mt-3' />
     <Skeleton className='w-16 mt-1 h-[21px]' />
     <Skeleton className='mt-2 h-[42px]' />

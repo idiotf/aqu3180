@@ -24,7 +24,9 @@ interface GithubSiteData {
 
 async function getGithubExtData(id: string, baseUrl = 'build'): Promise<GithubExtData> {
   const res = await fetch(`https://raw.githubusercontent.com/idiotf/${id}/main/${baseUrl}/manifest.json`, {
-    cache: 'no-store',
+    next: {
+      revalidate: 60,
+    },
   })
   const json = await res.json()
 
