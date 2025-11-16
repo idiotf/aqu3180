@@ -24,6 +24,7 @@ export const githubExtList = [
   'entry-login-count',
   'image-uploader',
   'entry-reverse-order',
+  'entry-unloadless',
 ]
 
 export const sites = [
@@ -81,4 +82,5 @@ export const githubTools = [
     description: '비디오 파일을 엔트리 작품 파일로 변환하는 효율적인 방법',
   },
   'shorten_url_generator',
+  'image-uploader',
 ]
