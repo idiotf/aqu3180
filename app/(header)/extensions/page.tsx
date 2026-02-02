@@ -10,6 +10,7 @@ const ExtensionList = () => <>
   <WebStoreExtensionList list={webStoreExtList} />
 
   <h2 className='text-[28px] mt-12 mb-4 font-semibold'>깃허브</h2>
+  <p className='text-neutral-700 dark:text-neutral-300'>⚠️ 깃허브에만 올라온 확장은 아직 불안정하며 버그가 발생할 수 있습니다.</p>
   <GithubExtensionList list={githubExtList} />
 </>
 

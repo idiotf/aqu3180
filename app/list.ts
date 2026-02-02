@@ -26,6 +26,7 @@ export const githubExtList = [
   'entry-reverse-order',
   'entry-unloadless',
   'entry-toastify',
+  'strongblock-ext',
 ]
 
 export const sites = [
@@ -49,6 +50,11 @@ export const sites = [
     link: 'https://image.aqu3180.co.kr',
     description: 'WebGL을 사용해 이미지에 여러 가지 효과를 입혀보는 곳입니다.',
   },
+  {
+    name: 'Code Banner',
+    link: 'https://code-banner.aqu3180.co.kr',
+    description: '원하는 코드를 입력하면 svg 배너로 만들어 줍니다.',
+  },
 ]
 
 export const webTools = [
@@ -67,6 +73,11 @@ export const webTools = [
     link: 'https://image.aqu3180.co.kr/rgb-encoder/encoder',
     description: '파일에 들어있는 내용을 RGB로 인코딩해서 보여줍니다.',
   },
+  {
+    name: 'Code Banner',
+    link: 'https://code-banner.aqu3180.co.kr',
+    description: '원하는 코드를 입력하면 svg 배너로 만들어 줍니다.',
+  },
 ]
 
 export const webStoreTools = [
@@ -81,6 +92,11 @@ export const githubTools = [
     id: 'entry-video-compress',
     name: 'Entry Video Compress',
     description: '비디오 파일을 엔트리 작품 파일로 변환하는 효율적인 방법',
+  },
+  {
+    id: 'code-banner',
+    name: 'Code Banner',
+    description: '원하는 코드를 입력하면 svg 배너로 만들어 줍니다.',
   },
   'shorten_url_generator',
   'image-uploader',
