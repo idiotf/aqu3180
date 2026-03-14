@@ -26,6 +26,7 @@ export const githubExtList = [
   'entry-reverse-order',
   'entry-unloadless',
   'entry-toastify',
+  'entry-prequestion',
   'strongblock-ext',
 ]
 
