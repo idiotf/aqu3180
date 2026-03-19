@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { Suspense } from 'react'
 import ErrorComponent from '@/app/error'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -47,7 +47,8 @@ export const GithubExtension = async ({ id, baseUrl }: {
     <Link href={`https://github.com/idiotf/${id}`} target='_blank' aria-label={name} className='absolute rounded-[20px] w-full h-full z-10' />
     <div className='h-full flex items-center gap-4 p-4'>
       {image && (
-        <Image
+        // eslint-disable-next-line @next/next/no-img-element
+        <img // Image
           src={image}
           alt={`${name} 아이콘`}
           width={64}
