@@ -13,6 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 
 import entryLogo from './third-party-logo/entry.png'
 import GithubLogo from './third-party-logo/github'
+import Script from 'next/script'
 
 const NavigationItem = ({ children, href }: React.PropsWithChildren<{
   href: string
@@ -96,8 +97,8 @@ const HeaderLayout = ({
   className,
   params, // eslint-disable-line @typescript-eslint/no-unused-vars
   ...props
-}: React.PropsWithChildren<React.HTMLProps<HTMLElement>> & { params?: unknown }) =>
-  <main className='min-h-full'>
+}: React.PropsWithChildren<React.HTMLProps<HTMLElement>> & { params?: unknown }) => <>
+  <main>
     <header className='border-b sticky max-[30rem]:top-0 bg-background z-20'>
       <nav className='p-3 flex items-center justify-between m-auto max-w-5xl'>
         <div className='w-32 flex max-md:w-[calc(50%-244px)] max-sm:w-16 text-[0px]'>
@@ -153,5 +154,9 @@ const HeaderLayout = ({
       </nav>
     </footer>
   </main>
+
+  <footer id='keep-android-open' />
+  <Script src='https://keepandroidopen.org/banner.js?size=minimal&id=keep-android-open' />
+</>
 
 export default HeaderLayout
