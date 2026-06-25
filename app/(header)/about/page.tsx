@@ -1,29 +1,22 @@
 import Link from 'next/link'
 import Logo from '@/app/logo'
-import Image from 'next/image'
-import NextJSLogo from '../third-party-logo/nextjs'
-import TypeScriptLogo from '../third-party-logo/typescript'
-import TailwindcssLogo from '../third-party-logo/tailwindcss'
-import ShadcnLogo from '../third-party-logo/shadcn'
-import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Aqu3180Text from '@/app/aqu3180-text'
 
-const FrameworkCard = ({ image, name, width, height, link }: {
+import NextJSLogo from '@/assets/3rd-party-logos/nextjs'
+import TypeScriptLogo from '@/assets/3rd-party-logos/typescript'
+import TailwindcssLogo from '@/assets/3rd-party-logos/tailwindcss'
+import ShadcnLogo from '@/assets/3rd-party-logos/shadcn'
+
+const FrameworkCard = ({ image, name, link }: {
   name: string
-  image: string | StaticImport | React.ReactNode
+  image: React.ReactNode
   width?: number
   height?: number
   link: string
 }) =>
   <li className='p-4 border rounded-2xl flex flex-col items-center relative transition duration-200 hover:scale-105'>
     <Link href={link} className='absolute inset-0 rounded-2xl z-10' target='_blank' aria-label={name} />
-    {image && typeof image == 'object' && ('src' in image || 'default' in image) ? <Image
-      src={image}
-      width={width}
-      height={height}
-      alt=''
-      className='size-32 mt-4'
-    /> : image}
+    {image}
     <h3 className='my-4 font-medium'>{name}</h3>
   </li>
 

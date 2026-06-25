@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import HeaderLayout from './(header)/layout'
+import { Layout } from '@/components/layout'
 import { Button } from '@/components/ui/button'
-import error404 from './kawaii-error-images/404.png'
+import error404 from '@/assets/error-images/404.png'
 
 const NotFound = () =>
-  <HeaderLayout className='flex h-min items-center'>
+  <Layout className='flex h-min items-center'>
     <div className='flex-1 h-min'>
       <h1 className='text-4xl mt-16 mb-6 font-bold break-keep'>페이지를 찾지 못했습니다.</h1>
       <p className='text-neutral-700 dark:text-neutral-300 my-6 break-keep'>이 페이지는 aqu3180이 창조하지 않은 페이지인 것 같습니다.</p>
@@ -17,6 +17,6 @@ const NotFound = () =>
       <Image src={error404} alt='' priority className='aspect-video' />
       <figcaption className='text-center px-4'>Illustration by SAWARATSUKI</figcaption>
     </figure>
-  </HeaderLayout>
+  </Layout>
 
 export default NotFound

@@ -1,10 +1,14 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+
 const ErrorComponent = () =>
-  <div className='p-8 h-full flex justify-center items-center'>
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' className='size-16'>
-      <circle cx={16} cy={16} r={16} className='fill-red-500' />
-    </svg>
+  <div className='p-8 h-full flex flex-col justify-center items-center text-center'>
+    <p className='my-4'>
+      외도치 않은 오류가 발생했어요..<br />
+      죄송해요..
+    </p>
+    <Button onClick={() => location.reload()}>새로고침</Button>
   </div>
 
 export default ErrorComponent
