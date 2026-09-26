@@ -56,6 +56,11 @@ export const sites = [
     link: 'https://code-banner.aqu3180.co.kr',
     description: '원하는 코드를 입력하면 svg 배너로 만들어 줍니다.',
   },
+  {
+    name: '스마일 배너 생성기',
+    link: 'https://smile.aqu3180.co.kr',
+    description: '엔트리 마이 페이지에 쓰기 위한 스마일 배너를 생성하는 기능을 제공합니다.',
+  },
 ]
 
 export const webTools = [
