@@ -1,5 +1,6 @@
-import { cacheLife } from 'next/cache'
-import { useMemo } from 'react'
+'use client'
+
+import { useState, useEffect } from 'react'
 import { CommonLogo, type CommonLogoProps } from './common'
 import { KoreanLogo } from './korean'
 import { TaegeukLogo } from './taegeuk'
@@ -20,10 +21,15 @@ const anniversaries = [
   new Date('10.3'),
 ]
 
-export function DynamicLogo(props: CommonLogoProps) {
-  cacheLife('days')
+const invalidDate = new Date('a')
 
-  const date = useMemo(() => new Date(), [])
+export function DynamicLogo(props: CommonLogoProps) {
+  const [date, setDate] = useState(invalidDate)
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setDate(new Date())
+  }, [])
 
   if (matchesDay(date, koreanDay)) {
     return <KoreanLogo {...props} />
