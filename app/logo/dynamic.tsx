@@ -21,7 +21,6 @@ const anniversaries = [
 ]
 
 export function DynamicLogo(props: CommonLogoProps) {
-  'use cache'
   cacheLife('days')
 
   const date = useMemo(() => new Date(), [])
