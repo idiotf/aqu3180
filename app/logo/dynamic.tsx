@@ -1,4 +1,4 @@
-import { CommonLogo } from './common'
+import { CommonLogo, type CommonLogoProps } from './common'
 import { KoreanLogo } from './korean'
 
 function matchesDay(a: Date, b: Date) {
@@ -10,12 +10,12 @@ function matchesDay(a: Date, b: Date) {
 
 const koreanDay = new Date('10. 9.')
 
-export function DynamicLogo(...props: React.ComponentProps<'svg'>) {
+export function DynamicLogo(props: CommonLogoProps) {
   const date = useMemo(() => new Date(), [])
 
   if (matchesDay(date, koreanDay)) {
-    return <KoreanLogo />
+    return <KoreanLogo {...props} />
   }
 
-  return <CommonLogo />
+  return <CommonLogo {...props} />
 }
