@@ -1,3 +1,4 @@
+import { cacheLife } from 'next/cache'
 import { useMemo } from 'react'
 import { CommonLogo, type CommonLogoProps } from './common'
 import { KoreanLogo } from './korean'
@@ -20,6 +21,8 @@ const anniversaries = [
 ]
 
 export function DynamicLogo(props: CommonLogoProps) {
+  cacheLife('days')
+
   const date = useMemo(() => new Date(), [])
 
   if (matchesDay(date, koreanDay)) {
