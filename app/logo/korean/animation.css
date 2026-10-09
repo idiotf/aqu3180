@@ -1,0 +1,13 @@
+.animate-glyph {
+  animation: 5s cubic-bezier(0.81, -0.03, 0.25, 1.04) infinite alternate glyph;
+}
+
+@keyframes glyph {
+  33% {
+    d: path('M23 9v14m0-7h0m0 0a7 7 0 0 0-14 0 7 7 0 0 0 14 0');
+  }
+  
+  67%, to {
+    d: path('M23.5 9v14m0-7h4m-7 0a7 7 0 0 0-14 0 7 7 0 0 0 14 0');
+  }
+}

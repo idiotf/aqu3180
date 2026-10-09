@@ -3,7 +3,7 @@ export type CommonLogoProps = Omit<React.ComponentProps<'svg'>, 'viewport'>
 export function CommonLogo(props: CommonLogoProps) {
   return (
     <svg {...props} viewBox='0 0 32 32'>
-      <circle cx='16' cy='16' r='16' fill='var(--logo,oklch(0.6401 0.1929 254.5))' />
+      <circle cx='16' cy='16' r='16' fill='var(--logo,oklch(.6401.1929 254.5))' />
       <path
         fill='none'
         stroke='#fff'
