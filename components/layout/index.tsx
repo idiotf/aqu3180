@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import Logo from '@/app/logo'
+import { DynamicLogo } from '@/app/logo'
 import Aqu3180Text from '@/app/aqu3180-text'
 
 import { cn } from '@/lib/utils'
@@ -102,7 +102,7 @@ export const Layout = ({
       <nav className='p-3 flex items-center justify-between m-auto max-w-5xl'>
         <div className='w-32 flex max-md:w-[calc(50%-244px)] max-sm:w-16 text-[0px]'>
           <Link href='/' className='inline-block w-min' aria-label='aqu3180 홈'>
-            <Logo className='size-12' />
+            <DynamicLogo className='size-12' />
           </Link>
         </div>
         <ul className='flex-1 flex items-center justify-evenly max-[30rem]:hidden'>
@@ -134,7 +134,7 @@ export const Layout = ({
     <footer className='mt-12 border-t'>
       <nav className='flex flex-wrap gap-5 items-center p-3 py-8 m-auto max-w-5xl min-h-28'>
         <div className='flex justify-start gap-4'>
-          <Logo className='size-12' />
+          <DynamicLogo className='size-12' />
           <Aqu3180Text className='w-min h-12' />
         </div>
         <Separator orientation='vertical' style={separatorStyle} />
