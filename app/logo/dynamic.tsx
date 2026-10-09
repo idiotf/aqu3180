@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { CommonLogo, type CommonLogoProps } from './common'
 import { KoreanLogo } from './korean'
+import { TaegeukLogo } from './taegeuk'
 
 function matchesDay(a: Date, b: Date) {
   return (
