@@ -1,4 +1,4 @@
-import type { CommonLogoProps } from '../common'
+import type { CommonLogoProps } from './common'
 
 export function TaegeukLogo(props: CommonLogoProps) {
   return (
