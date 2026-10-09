@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  cacheComponents: true,
   allowedDevOrigins: process.env.ALLOWED_DEV_ORIGINS?.split(';'),
   images: {
     remotePatterns: [
